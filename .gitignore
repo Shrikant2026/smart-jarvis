@@ -1,0 +1,73 @@
+# Secrets and environment configuration
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.Python
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node / frontend
+node_modules/
+dist/
+build/
+.next/
+.vite/
+coverage/
+
+# Local databases and runtime state
+*.sqlite
+*.sqlite3
+*.db
+backend/data/
+backend/chroma_db/
+
+# Logs, temporary files and generated media
+*.log
+*.tmp
+*.temp
+*.mp4
+*.mov
+*.webm
+*.wav
+*.mp3
+*.zip
+*.tar
+*.gz
+
+# AI models and checkpoints
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.gguf
+*.onnx
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local safety backups
+backend/backup_video_safety_*/
+backup_ram_preflight_*/
+
+# Local environment and generated output
+backend/.env
+backend/logs/
+backend/data/

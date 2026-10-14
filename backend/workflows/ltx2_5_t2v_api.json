@@ -1,0 +1,645 @@
+{
+  "75": {
+    "inputs": {
+      "filename_prefix": "video/LTX_2.5_t2v",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video-preview": "",
+      "video": [
+        "405:370",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  },
+  "409": {
+    "inputs": {
+      "aspect_ratio": "3:2 (Photo)",
+      "megapixels": 0.9,
+      "multiple": 36
+    },
+    "class_type": "ResolutionSelector",
+    "_meta": {
+      "title": "Resolution Selector"
+    }
+  },
+  "405:370": {
+    "inputs": {
+      "fps": [
+        "405:359",
+        0
+      ],
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "405:374",
+        0
+      ],
+      "audio": [
+        "405:358",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Create Video"
+    }
+  },
+  "405:340": {
+    "inputs": {
+      "video_latent": [
+        "405:348",
+        0
+      ],
+      "audio_latent": [
+        "405:367",
+        1
+      ]
+    },
+    "class_type": "LTXVConcatAVLatent",
+    "_meta": {
+      "title": "Concat AV Latent"
+    }
+  },
+  "405:395": {
+    "inputs": {
+      "sigmas": "0.85, 0.7250, 0.4219, 0.0"
+    },
+    "class_type": "ManualSigmas",
+    "_meta": {
+      "title": "ManualSigmas"
+    }
+  },
+  "405:348": {
+    "inputs": {
+      "samples": [
+        "405:367",
+        0
+      ],
+      "upscale_model": [
+        "405:371",
+        0
+      ],
+      "vae": [
+        "405:385",
+        0
+      ]
+    },
+    "class_type": "LTXVLatentUpsampler",
+    "_meta": {
+      "title": "LTXVLatentUpsampler"
+    }
+  },
+  "405:358": {
+    "inputs": {
+      "samples": [
+        "405:369",
+        1
+      ],
+      "audio_vae": [
+        "405:386",
+        0
+      ]
+    },
+    "class_type": "LTXVAudioVAEDecode",
+    "_meta": {
+      "title": "LTXV Audio VAE Decode"
+    }
+  },
+  "405:341": {
+    "inputs": {
+      "sampler_name": "euler_ancestral"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "405:391": {
+    "inputs": {
+      "video_cfg": 1,
+      "audio_cfg": 1,
+      "model": [
+        "405:384",
+        0
+      ],
+      "positive": [
+        "405:365",
+        0
+      ],
+      "negative": [
+        "405:365",
+        1
+      ]
+    },
+    "class_type": "LTXVDualCFGGuider",
+    "_meta": {
+      "title": "LTXV Dual CFG Guider"
+    }
+  },
+  "405:368": {
+    "inputs": {
+      "noise": [
+        "405:338",
+        0
+      ],
+      "guider": [
+        "405:391",
+        0
+      ],
+      "sampler": [
+        "405:341",
+        0
+      ],
+      "sigmas": [
+        "405:395",
+        0
+      ],
+      "latent_image": [
+        "405:340",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "405:338": {
+    "inputs": {
+      "noise_seed": 42
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise"
+    }
+  },
+  "405:367": {
+    "inputs": {
+      "av_latent": [
+        "405:344",
+        0
+      ]
+    },
+    "class_type": "LTXVSeparateAVLatent",
+    "_meta": {
+      "title": "Separate AV Latent"
+    }
+  },
+  "405:369": {
+    "inputs": {
+      "av_latent": [
+        "405:368",
+        0
+      ]
+    },
+    "class_type": "LTXVSeparateAVLatent",
+    "_meta": {
+      "title": "Separate AV Latent"
+    }
+  },
+  "405:374": {
+    "inputs": {
+      "tile_size": 512,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 16,
+      "samples": [
+        "405:369",
+        0
+      ],
+      "vae": [
+        "405:385",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeTiled",
+    "_meta": {
+      "title": "VAE Decode (Tiled)"
+    }
+  },
+  "405:344": {
+    "inputs": {
+      "noise": [
+        "405:339",
+        0
+      ],
+      "guider": [
+        "405:388",
+        0
+      ],
+      "sampler": [
+        "405:352",
+        0
+      ],
+      "sigmas": [
+        "405:404",
+        0
+      ],
+      "latent_image": [
+        "405:377",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "405:404": {
+    "inputs": {
+      "sigmas": "1.0, 0.99375, 0.9875, 0.98125, 0.975, 0.909375, 0.725, 0.421875, 0.0"
+    },
+    "class_type": "ManualSigmas",
+    "_meta": {
+      "title": "ManualSigmas"
+    }
+  },
+  "405:388": {
+    "inputs": {
+      "video_cfg": 1,
+      "audio_cfg": 1,
+      "model": [
+        "405:384",
+        0
+      ],
+      "positive": [
+        "405:365",
+        0
+      ],
+      "negative": [
+        "405:365",
+        1
+      ]
+    },
+    "class_type": "LTXVDualCFGGuider",
+    "_meta": {
+      "title": "LTXV Dual CFG Guider"
+    }
+  },
+  "405:352": {
+    "inputs": {
+      "sampler_name": "euler_ancestral"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "405:339": {
+    "inputs": {
+      "noise_seed": 1073703819052238
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise"
+    }
+  },
+  "405:365": {
+    "inputs": {
+      "frame_rate": [
+        "405:359",
+        0
+      ],
+      "positive": [
+        "405:364",
+        0
+      ],
+      "negative": [
+        "405:373",
+        0
+      ]
+    },
+    "class_type": "LTXVConditioning",
+    "_meta": {
+      "title": "LTXVConditioning"
+    }
+  },
+  "405:377": {
+    "inputs": {
+      "video_latent": [
+        "405:356",
+        0
+      ],
+      "audio_latent": [
+        "405:366",
+        0
+      ]
+    },
+    "class_type": "LTXVConcatAVLatent",
+    "_meta": {
+      "title": "Concat AV Latent"
+    }
+  },
+  "405:364": {
+    "inputs": {
+      "text": [
+        "405:382",
+        0
+      ],
+      "clip": [
+        "405:387",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "405:373": {
+    "inputs": {
+      "text": "pc game, console game, video game, cartoon, childish, ugly",
+      "clip": [
+        "405:387",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "405:356": {
+    "inputs": {
+      "width": [
+        "405:353",
+        1
+      ],
+      "height": [
+        "405:355",
+        1
+      ],
+      "length": [
+        "405:378",
+        1
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLTXVLatentVideo",
+    "_meta": {
+      "title": "Empty LTXV Latent Video"
+    }
+  },
+  "405:366": {
+    "inputs": {
+      "frames_number": [
+        "405:378",
+        1
+      ],
+      "frame_rate": [
+        "405:359",
+        1
+      ],
+      "batch_size": 1,
+      "audio_vae": [
+        "405:386",
+        0
+      ]
+    },
+    "class_type": "LTXVEmptyLatentAudio",
+    "_meta": {
+      "title": "Empty LTXV Latent Audio"
+    }
+  },
+  "405:381": {
+    "inputs": {
+      "source": [
+        "405:382",
+        0
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "Preview as Text"
+    }
+  },
+  "405:382": {
+    "inputs": {
+      "switch": [
+        "405:383",
+        0
+      ],
+      "on_false": [
+        "405:376",
+        0
+      ],
+      "on_true": [
+        "405:380",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "If/Else Switch"
+    }
+  },
+  "405:371": {
+    "inputs": {
+      "model_name": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors"
+    },
+    "class_type": "LatentUpscaleModelLoader",
+    "_meta": {
+      "title": "Load Latent Upscale Model"
+    }
+  },
+  "405:384": {
+    "inputs": {
+      "unet_name": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "405:385": {
+    "inputs": {
+      "vae_name": "ltx-2.5-video-vae-bf16.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "405:386": {
+    "inputs": {
+      "vae_name": "ltx-2.5-audio-vae-bf16.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "405:387": {
+    "inputs": {
+      "clip_name": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "type": "ltxv",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "405:380": {
+    "inputs": {
+      "prompt": [
+        "405:376",
+        0
+      ],
+      "max_length": 600,
+      "sampling_mode": "on",
+      "sampling_mode.temperature": 0.7,
+      "sampling_mode.top_k": 64,
+      "sampling_mode.top_p": 0.95,
+      "sampling_mode.min_p": 0.05,
+      "sampling_mode.repetition_penalty": 1.15,
+      "sampling_mode.seed": 0,
+      "sampling_mode.presence_penalty": 0,
+      "thinking": false,
+      "use_default_template": true,
+      "mtp": "auto",
+      "clip": [
+        "405:393",
+        0
+      ]
+    },
+    "class_type": "TextGenerateLTX2Prompt",
+    "_meta": {
+      "title": "Generate LTX2 Prompt"
+    }
+  },
+  "405:378": {
+    "inputs": {
+      "expression": "a * b + 1",
+      "values.a": [
+        "405:362",
+        0
+      ],
+      "values.b": [
+        "405:361",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Math Expression (length)"
+    }
+  },
+  "405:353": {
+    "inputs": {
+      "expression": "a/2",
+      "values.a": [
+        "405:372",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Math Expression"
+    }
+  },
+  "405:355": {
+    "inputs": {
+      "expression": "a/2",
+      "values.a": [
+        "405:360",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Math Expression"
+    }
+  },
+  "405:359": {
+    "inputs": {
+      "expression": "a",
+      "values.a": [
+        "405:361",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Math Expression (fps)"
+    }
+  },
+  "405:360": {
+    "inputs": {
+      "value": [
+        "409",
+        1
+      ]
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Height"
+    }
+  },
+  "405:361": {
+    "inputs": {
+      "value": 24
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Frame Rate"
+    }
+  },
+  "405:362": {
+    "inputs": {
+      "value": 20
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Duration"
+    }
+  },
+  "405:372": {
+    "inputs": {
+      "value": [
+        "409",
+        0
+      ]
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Width"
+    }
+  },
+  "405:376": {
+    "inputs": {
+      "value": "\n{\n  \"title\": \"The Lighthouse That Remembered\",\n  \"total_duration_seconds\": 24,\n  \"aspect_ratio\": \"9:16\",\n  \"style\": \"cinematic fantasy, emotional storytelling, photorealistic characters, atmospheric lighting\",\n  \"audio\": {\n    \"narrator\": \"soft, mysterious male voice with emotional delivery\",\n    \"background_music\": \"gentle piano, ocean waves, subtle orchestral crescendo\",\n    \"subtitles\": false\n  },\n  \"character_consistency\": {\n    \"elias\": \"an elderly lighthouse keeper with white hair, a short white beard, a weathered face, a long brown coat, and kind blue eyes\",\n    \"little_girl\": \"a seven-year-old girl with curly auburn hair, a yellow raincoat, and a small red toy boat\",\n    \"mother\": \"a young woman with auburn hair, wearing a cream-colored dress, gentle smile\"\n  },\n  \"scenes\": [\n    {\n      \"scene\": 1,\n      \"start_seconds\": 0,\n      \"duration_seconds\": 8,\n      \"title\": \"The Lonely Lighthouse\",\n      \"voiceover\": \"Every night, Elias lit his lighthouse for ships. But for twenty years, he waited for one ship that never returned.\",\n      \"visual_prompt\": \"Vertical 9:16 cinematic fantasy drama. A lonely ancient lighthouse stands on a rocky cliff during a stormy night. Waves crash against the rocks, seabirds circle in the mist, and a warm beam of light sweeps across the dark ocean. Inside the lighthouse, Elias, an elderly keeper with white hair, a short beard, kind blue eyes, and a long brown coat, watches the horizon through a rain-covered window. An old photograph rests beside a brass lantern. Slow cinematic camera movement, realistic ocean spray, atmospheric fog, detailed textures, emotional solitude, photorealistic lighting.\",\n      \"camera\": \"Begin with a wide aerial shot of the lighthouse, then slowly move inside to Elias watching the sea.\",\n      \"sound_effects\": [\n        \"crashing ocean waves\",\n        \"howling wind\",\n        \"creaking lighthouse windows\"\n      ],\n      \"transition_out\": \"A sudden flash of lightning illuminates an old photograph.\"\n    },\n    {\n      \"scene\": 2,\n      \"start_seconds\": 8,\n      \"duration_seconds\": 8,\n      \"title\": \"The Little Visitor\",\n      \"voiceover\": \"One stormy evening, a little girl arrived, holding a red toy boat. 'My mother said you'd know where my father went.'\",\n      \"visual_prompt\": \"Vertical 9:16 emotional cinematic fantasy. Inside the same old lighthouse, the wooden door slowly opens during a storm. A seven-year-old girl with curly auburn hair, a bright yellow raincoat, and a small red toy boat steps inside. Elias kneels to meet her at eye level. She looks up at him with hopeful, tearful eyes and holds out the toy boat. He notices a tiny engraved name on its wooden side, identical to the name on the old photograph beside his lantern. His expression changes from confusion to overwhelming recognition. Warm lantern light contrasts with cold blue storm light, realistic expressions, gentle camera movement, consistent character designs.\",\n      \"camera\": \"Track the girl entering, focus on the red toy boat, then close in on Elias's shocked expression.\",\n      \"sound_effects\": [\n        \"wooden door creaking\",\n        \"rain tapping the windows\",\n        \"soft suspenseful piano note\"\n      ],\n      \"transition_out\": \"Close-up of the engraved name on the red toy boat.\"\n    },\n    {\n      \"scene\": 3,\n      \"start_seconds\": 16,\n      \"duration_seconds\": 8,\n      \"title\": \"The Light That Never Died\",\n      \"voiceover\": \"Elias began to cry. The girl was his granddaughter. Her father had vanished at sea, but his family had finally found him.\",\n      \"visual_prompt\": \"Vertical 9:16 cinematic emotional fantasy. Elias gently embraces the little girl inside the lighthouse, tears running down his weathered cheeks. He looks toward the old photograph of his missing son and realizes that his granddaughter has finally found him. The storm outside begins to calm. The lighthouse beam shines brilliantly across the ocean, illuminating a distant ship returning safely to harbor. The girl holds her red toy boat between them. Golden lantern light fills the room, the camera slowly pulls back, and the two remain embraced beside the window. Bittersweet reunion, hopeful ending, photorealistic faces, cinematic lighting, soft film grain, natural movement.\",\n      \"camera\": \"Emotional close-up of Elias, gentle embrace, then a slow pullback showing the lighthouse beam across the ocean.\",\n      \"sound_effects\": [\n        \"soft emotional piano\",\n        \"waves gradually calming\",\n        \"gentle orchestral swell\"\n      ],\n      \"ending_voiceover\": \"Sometimes, a light kept burning for the past becomes the light that guides someone home.\",\n      \"transition_out\": \"Fade slowly to black.\"\n    }\n  ],\n  \"negative_prompt\": \"inconsistent character faces, changing clothes, distorted hands, extra fingers, unnatural body movements, flickering, blurry subjects, cartoon appearance, oversaturated colors, shaky camera, abrupt cuts, unreadable text, watermarks, logos, subtitles\"\n}\n"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Prompt"
+    }
+  },
+  "405:393": {
+    "inputs": {
+      "clip_name": "gemma4_e2b_it_int8_convrot.safetensors",
+      "type": "ltxv",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "405:383": {
+    "inputs": {
+      "value": false
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Boolean (Enable Prompt Enhance)"
+    }
+  }
+}
